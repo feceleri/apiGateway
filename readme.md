@@ -37,6 +37,8 @@ A listagem de clientes e endereços possui suporte à paginação. Por padrão, 
 
 A API utiliza um banco de dados MySQL para armazenar os dados dos clientes e endereços. É necessário configurar as informações de conexão com o banco de dados no arquivo `config.js`.
 
+Rode o SCRIPT `BD_API.sql` para criação do banco de dados e tabelas.
+
 ## Executando a API
 
 Para executar a API, siga as etapas abaixo:
