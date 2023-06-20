@@ -27,7 +27,7 @@ A API possui as seguintes rotas:
 - `POST /api/v1/cliente/{codigo}/endereco`: Adicionar um novo endereço a um cliente.
 - `GET /api/v1/cliente/{codigo}/endereco/{indice}`: Obter informações de um endereço específico de um cliente.
 - `GET /api/v1/cliente/{codigo}/endereco/`: Listar todos os endereços de um cliente.
-- `GET /api/v1/cliente/endereco?cidade={cidade}`: Buscar endereços de clientes por cidade.
+- `GET /api/v1/endereco?cidade={cidade}`: Buscar endereços de clientes por cidade.
 
 ## Paginação
 
