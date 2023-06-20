@@ -1,19 +1,12 @@
 const express = require('express');
 const mysql = require('mysql2');
+const config = require('./config');
 
 const app = express();
 app.use(express.json());
 
-// Configurações do banco de dados
-const dbConfig = {
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'trabalho1',
-};
-
-// Conexão com o banco de dados
-const connection = mysql.createConnection(dbConfig);
+// Configuração da conexão com o banco de dados
+const connection = mysql.createConnection(config);
 
 // Verificar a conexão com o banco de dados
 connection.connect((err) => {
@@ -183,8 +176,14 @@ app.get('/api/v1/endereco', (req, res) => {
   });
 });
 
+// Encerra a conexão com o banco de dados ao finalizar a API
+process.on('SIGINT', () => {
+  connection.end();
+  process.exit();
+});
 
-// Iniciar o servidor
-app.listen(3000, () => {
-  console.log('API rodando na porta 3000');
+// Inicia o servidor da API
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`API rodando na porta ${port}`);
 });
